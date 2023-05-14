@@ -1,0 +1,43 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'admin_navigation.html' %}
+
+<marquee behavior="" direction="" style="font-family: Poppins,sans-serif;font-size: 25px;color: darkcyan;background-color: black;font-weight: bold;margin-top: 1%;">
+    View Recruiter  -  Pending
+</marquee>
+<hr>
+
+<form action="" method="post" class="container mt-5">
+    {% csrf_token %}
+
+    <label for=""><b>Recruiter</b></label>
+    <input type="text" class="form-control" name="uname" value="{{recruiter.user.first_name}} {{recruiter.user.last_name}}">
+
+    <label for="Password"><b>Status</b></label>
+    <select name="status" class="form-control">
+        <option value="Accept">Accept</option>
+        <option value="Reject">Reject</option>
+    </select>
+
+    <input type="submit" class="btn btn-outline-primary" style="margin-top: 2%; color: darkcyan;background-color: black;height: 40px;font-size: 15px;">
+</form>
+
+{% include 'footer.html' %}
+
+
+{% ifequal error "no" %}
+<script>
+    alert('Status changed succefully');
+    window.location = ('{% url 'recruiter_pending' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong , Try again...');
+</script>
+
+{% endifequal %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'navigation.html' %}
+
+<marquee behavior="" direction="" style="font-family: Poppins,sans-serif;font-size: 25px;color: darkcyan;background-color: black;font-weight: bold;margin-top: 1%;">
+    Recruiter Login
+</marquee>
+<hr>
+<form action="" method="post" class="container mt-5">
+    {% csrf_token %}
+
+    <label for="Email"><b>Email</b></label>
+    <input type="text" class="form-control" name="uname" placeholder="email" id="">
+
+    <label for="Password"><b>Password</b></label>
+    <input type="password" class="form-control" name="pwd" placeholder="password" id="">
+
+    <input type="submit" class="btn btn-outline-primary" style="margin-top: 2%; color: darkcyan;background-color: black;height: 40px;font-size: 15px;">
+    <a href="{% url 'recruiter_signup' %}" class="btn btn-outline-primary" style="margin-top: 2%; color: darkcyan;background-color: black;height: 40px;font-size: 15px;">CREATE AN ACCOUNT</a>
+</form>
+
+{% include 'footer.html' %}
+
+
+{% ifequal error "no" %}
+<script>
+    alert('Login Succefully');
+    window.location = ('{% url 'recruiter_home' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid credentials...');
+</script>
+{% endifequal %}
+
+
+{% ifequal error "not" %}
+<script>
+    alert('Your login status is pending');
+</script>
+{% endifequal %}
+
+{% endblock %}

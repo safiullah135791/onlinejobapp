@@ -1,0 +1,86 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'recruiter_navigation.html' %}
+
+<style>
+    .form-group{
+        margin-top: 15px;
+    }
+    .pass{
+        margin-top: 25px;
+    }
+</style>
+
+<marquee behavior="" direction="" style="font-family: Poppins,sans-serif;font-size: 25px;color: darkcyan;background-color: black;font-weight: bold;margin-top: 1%;">
+    Recriter Home
+</marquee>
+<hr>
+<form action="" method="post"  class="container mt-5" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="row g-3">
+        <div class="form-group col-md-3 ">
+            <label for="">First Name</label>
+            <input type="text" class="form-control" name="fname" value="{{recruiter.user.first_name}}">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="">Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="last name" value="{{recruiter.user.last_name}}">
+        </div>
+        
+    </div>
+
+    <div class="row g-3">
+        <div class="form-group col-md-3 ">
+            <label for="">Contact</label>
+            <input type="text" class="form-control" name="contact" value="{{recruiter.mobile}}" placeholder="contact number">
+        </div>
+
+        <div class="form-group col-md-3 ">
+            <label for="">Company</label>
+            <input type="text" class="form-control" name="company" value="{{recruiter.company}}" placeholder="Company" >
+        </div>
+        
+    </div>
+    
+    <div class="" style="float: right;margin-top: -150px;">
+        <img src="{{recruiter.image.url}}" width="300px" height="300px" alt="">
+    </div>
+    
+    <div class="form-row form-group">
+        <div class="form-group col-md-6 ">
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="email" value="{{recruiter.user}}" readonly>
+        </div>
+    </div>
+    
+    <div class="form-group col-md-3 pass">
+        <label for="">Image</label>
+        <input type="file" class="form-control" name="image">
+    </div>
+
+    </div>
+
+    <input type="submit" value="Submit" class="btn btn-outline-primary my-3" style="margin-top: 15px;width: 200px;">
+
+</form>
+
+{% include 'footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Profile updated Succefully');
+    window.location = ('{% url 'recruiter_home' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went wrong,Try Again...');
+</script>
+{% endifequal %}
+
+{% endblock %}

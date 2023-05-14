@@ -1,0 +1,92 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'navigation.html' %}
+
+<style>
+    .container{
+        max-width: 90%;
+    }
+    .content{
+        text-align: center;
+        position: relative;
+        bottom: 35px;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        height: 35px;
+        width: 91%;
+    }
+</style>
+
+<div class="container-fluid" style="margin-top: 1%;">
+    <img src="{% static 'images/jobimage.jpg' %}" style="height: 450px;width: 100%;" alt="">
+</div>
+
+<div class="container" style="background-color: black;height: 600px;margin-top: 2%;">
+    <h1 class="text-center text-white">---------| OUR PLACED STUDENTS |-------</h1>
+
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/placed.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>Facebook</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placed1.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>IBM</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placed2.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>Flipcart</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placed3.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>Amazon</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/placement4.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>Wipro</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placement5.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>TCS</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placement6.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>HCL</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <img src="{% static 'images/placement7.jpg' %}" style="width: 100%;margin-top: 5%;height: 200px;border-radius: 50%;" alt="">
+            <div class="content">
+                <p>Infosys</p>
+            </div>
+        </div>
+    </div>    
+</div>
+
+{% include 'footer.html'%}
+
+{% endblock %}

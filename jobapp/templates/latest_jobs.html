@@ -1,0 +1,42 @@
+{% load static %}
+
+{% block content %}
+
+{% include 'navigation.html' %}
+<style>
+    tr{text-align: center;}
+</style>
+<marquee behavior="" direction="" style="font-family: Poppins,sans-serif;font-size: 25px;color: darkcyan;background-color: black;font-weight: bold;margin-top: 1%;">
+    Latest Job List
+</marquee>
+<hr>
+<div class="container">
+<table class="table table-hover container" id="example">
+    <thead>
+        <tr style="background-color: #000080;color: white;">
+            <th>S.No.</th>
+            <th>Company Name</th>
+            <th>Job Title</th>
+            <th>Loction</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in data %}
+        <tr style="background-color: #DEB887;">
+            <td>{{forloop.counter}}</td>
+            <td>{{ i.recruiter.company }}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.location}}</td>
+            <td>{{i.start_date}}</td>
+            <td>{{i.end_date}}</td>
+            <td><a href="{% url 'user_login' %}" class="btn btn-outline-primary btn-sm">Login to apply</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
